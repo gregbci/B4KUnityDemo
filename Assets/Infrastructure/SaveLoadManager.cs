@@ -27,13 +27,17 @@ public class SaveLoadManager: MonoBehaviour
 
     public void LoadGame()
     {
-        if (repository.Load(out var json))
+        if (repository.Load(out var json) && json.Length > 0)
         {
             gameData = JsonUtility.FromJson<GameData>(json);
-
-            // Share with GameModel (gameData reference is used for saving)
-            GameModel.Instance?.Bind(gameData);
         }
+        else
+        {
+            gameData = new GameData();
+        }
+
+        // share new GameData with model, keep reference for saving
+        GameModel.Instance?.Bind(gameData);
     }
 
     public void SaveGame()

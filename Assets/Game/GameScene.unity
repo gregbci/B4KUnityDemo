@@ -180,7 +180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a39e37e49f734a3fada8ec252bdc5b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 1389245371}
   view: {fileID: 284938873}
 --- !u!1 &705507993
 GameObject:
@@ -379,7 +378,7 @@ GameObject:
   - component: {fileID: 1389245371}
   - component: {fileID: 1389245373}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -398,8 +397,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cube: {fileID: 1864644153}
-  model: {fileID: 1389245373}
-  rotateAmount: {x: 10, y: 20, z: 40}
 --- !u!4 &1389245372
 Transform:
   m_ObjectHideFlags: 0
@@ -424,7 +421,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1389245370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b806cd0009f4b82a8ec9f478b4f1ea, type: 3}
+  m_Script: {fileID: 11500000, guid: cdd437bbebc8045ac8d9e0923b09cb1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1864644153
