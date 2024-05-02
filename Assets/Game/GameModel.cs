@@ -3,33 +3,40 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameModel: Singleton<GameModel>
+// GameModel implements the "business logic" for the game.  It stores
+// state in a GameData object for easy serialization.  The GameModel exposes
+// state via read only properties.  Mutation of the state typically requires
+// calling a GameModel function, ie: tell the model what you want to do rather
+// that doing it yourself.
+//
+public class GameModel : Singleton<GameModel>
 {
-    // TODO - connect to data container, make these read only
-    public string Name { get; }
-    public Color CubeColor { get; }
+    private GameData gameData;
 
-    public bool IsRotating { get; set; }
-    public Vector3 RotationRates { get; set; }
+    // GameData is accessed using read only properties and mutated with functions
+    public string UserName => gameData.UserName;
+    public Color CubeColor => gameData.CubeColor;
+    public bool IsRotating => gameData.IsRotating;
+    public Vector3 RotationRates => gameData.RotationRates;
 
     public void Start()
     {
-        // TODO - handle case where data is null or stored
+        gameData = new GameData();
         ResetRotations();
     }
 
     public void StartRotate()
     {
-        IsRotating = true;
+        gameData.IsRotating = true;
     }
 
     public void StopRotate()
     {
-        IsRotating = false;
+        gameData.IsRotating = false;
     }
 
     public void ResetRotations()
     {
-        RotationRates = Random.rotation.eulerAngles;
+        gameData.RotationRates = Random.rotation.eulerAngles;
     }
 }
