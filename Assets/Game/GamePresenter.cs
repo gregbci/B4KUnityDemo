@@ -8,6 +8,7 @@ public class GamePresenter : MonoBehaviour
     public GameObject cube;
     private GameModel model;
 
+
     void Start()
     {
         // look this up once instead of every update

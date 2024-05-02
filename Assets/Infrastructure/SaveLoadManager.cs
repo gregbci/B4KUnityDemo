@@ -9,8 +9,9 @@ using UnityEngine;
 // be attached to buttons, etc.
 public class SaveLoadManager: MonoBehaviour
 {
-    GameData gameData = new GameData();
-    LocalRepository repository;
+    private GameData gameData;
+    private LocalRepository repository;
+
 
     public void Awake()
     {
@@ -23,11 +24,14 @@ public class SaveLoadManager: MonoBehaviour
         SaveGame();
     }
 
+
     public void LoadGame()
     {
         if (repository.Load(out var json))
         {
             gameData = JsonUtility.FromJson<GameData>(json);
+
+            // Share with GameModel (gameData reference is used for saving)
             GameModel.Instance?.Bind(gameData);
         }
     }

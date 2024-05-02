@@ -11,6 +11,7 @@ using UnityEngine;
 //
 public class GameModel : Singleton<GameModel>
 {
+    // Create a default GameData, this may be replaced by Bind()
     private GameData gameData = new GameData();
 
     // GameData is accessed using read only properties and mutated with functions
@@ -18,6 +19,7 @@ public class GameModel : Singleton<GameModel>
     public Color CubeColor => gameData.CubeColor;
     public bool IsRotating => gameData.IsRotating;
     public Vector3 RotationRates => gameData.RotationRates;
+
 
     public void Start()
     {
@@ -43,6 +45,9 @@ public class GameModel : Singleton<GameModel>
         gameData.RotationRates = Random.rotation.eulerAngles;
     }
 
+
+    // Bind replaces the current gameData with another one.  This is used
+    // to provide the model with a GameData loaded from disk, etc.
     public void Bind(GameData gameData)
     {
         this.gameData = gameData;
