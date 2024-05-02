@@ -377,6 +377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1389245372}
   - component: {fileID: 1389245371}
+  - component: {fileID: 1389245373}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -397,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cube: {fileID: 1864644153}
+  model: {fileID: 1389245373}
   rotateAmount: {x: 10, y: 20, z: 40}
 --- !u!4 &1389245372
 Transform:
@@ -413,6 +415,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1389245373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389245370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b806cd0009f4b82a8ec9f478b4f1ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1864644153
 GameObject:
   m_ObjectHideFlags: 0
