@@ -39,8 +39,11 @@ public class LocalRepository
         var fullPath = GetPathToDataFile();
         try
         {
-            json = File.ReadAllText(fullPath);
-            success = true;
+            if (File.Exists(fullPath))
+            {
+                json = File.ReadAllText(fullPath);
+                success = true;
+            }
         }
         catch (Exception e)
         {
