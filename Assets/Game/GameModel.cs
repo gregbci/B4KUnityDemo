@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameModel : MonoBehaviour
+public class GameModel: Singleton<GameModel>
 {
-    // connect to data container, make these read only
+    // TODO - connect to data container, make these read only
     public string Name { get; }
     public Color CubeColor { get; }
 
     public bool IsRotating { get; set; }
     public Vector3 RotationRates { get; set; }
 
-    private void Start()
+    public void Start()
     {
+        // TODO - handle case where data is null or stored
         ResetRotations();
     }
 
