@@ -11,7 +11,7 @@ using UnityEngine;
 //
 public class GameModel : Singleton<GameModel>
 {
-    private GameData gameData;
+    private GameData gameData = new GameData();
 
     // GameData is accessed using read only properties and mutated with functions
     public string UserName => gameData.UserName;
@@ -21,8 +21,11 @@ public class GameModel : Singleton<GameModel>
 
     public void Start()
     {
-        gameData = new GameData();
-        ResetRotations();
+        // Initialize rates if they're zero (indicates new GameData)
+        if (gameData?.RotationRates == Vector3.zero)
+        {
+            ResetRotations();
+        }
     }
 
     public void StartRotate()
@@ -38,5 +41,10 @@ public class GameModel : Singleton<GameModel>
     public void ResetRotations()
     {
         gameData.RotationRates = Random.rotation.eulerAngles;
+    }
+
+    public void Bind(GameData gameData)
+    {
+        this.gameData = gameData;
     }
 }
