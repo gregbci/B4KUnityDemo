@@ -1,0 +1,6 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Template name="MainScreen" src="project://database/Assets/UI/MainScreen.uxml?fileID=9197481963319205126&amp;guid=20bd29a8b7a4d4430ac936dc04c1b06e&amp;type=3#MainScreen" />
+    <engine:Template name="SetupScreen" src="project://database/Assets/UI/SetupScreen.uxml?fileID=9197481963319205126&amp;guid=f33dd28c82b9f45b4a4cefe52421cc12&amp;type=3#SetupScreen" />
+    <engine:Instance template="MainScreen" picking-mode="Ignore" style="flex-grow: 0; position: absolute; width: 100%; height: 100%;" />
+    <engine:Instance template="SetupScreen" picking-mode="Ignore" style="flex-grow: 0; position: absolute; width: 100%; height: 100%; visibility: visible; display: flex;" />
+</engine:UXML>

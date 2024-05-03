@@ -1,9 +1,9 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/MainViewStyle.uss?fileID=7433441132597879392&amp;guid=1285998f8208346e491ece4e31de9832&amp;type=3#MainViewStyle" />
-    <engine:VisualElement name="VisualElement" style="flex-grow: 1; justify-content: flex-start; flex-direction: column;">
+    <Style src="project://database/Assets/UI/Styles.uss?fileID=7433441132597879392&amp;guid=1285998f8208346e491ece4e31de9832&amp;type=3#Styles" />
+    <engine:VisualElement name="MainScreen" style="flex-grow: 1; justify-content: flex-start; flex-direction: column;">
         <engine:VisualElement name="GameMenuContainer" style="flex-grow: 0; align-self: stretch; flex-direction: row; justify-content: space-between; align-items: auto;">
             <engine:Label text="User Name" name="NameLabel" class="user-name-label" />
-            <engine:Button text="Settings" class="setting-button" />
+            <engine:Button text="Setup" name="SetupButton" class="setting-button" />
         </engine:VisualElement>
         <engine:VisualElement name="GameArea" style="flex-grow: 1;" />
         <engine:VisualElement name="GameControlContainer" style="flex-grow: 0; justify-content: flex-start; flex-basis: auto; flex-direction: row; align-self: center; align-items: center; -unity-text-align: upper-center;">
