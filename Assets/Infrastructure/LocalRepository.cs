@@ -22,7 +22,6 @@ public class LocalRepository
         try
         {
             File.WriteAllText(fullPath, json);
-            Debug.Log("LocalRepository: Saved data to " + fullPath);
             success = true;
         }
         catch (Exception e)

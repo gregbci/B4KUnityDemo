@@ -30,10 +30,12 @@ public class SaveLoadManager: MonoBehaviour
         if (repository.Load(out var json) && json.Length > 0)
         {
             gameData = JsonUtility.FromJson<GameData>(json);
+            Debug.Log("SaveLoadManager: Loaded game data");
         }
         else
         {
             gameData = new GameData();
+            Debug.Log("SaveLoadManager: Initializing game data");
         }
 
         // share new GameData with model, keep reference for saving
@@ -43,6 +45,7 @@ public class SaveLoadManager: MonoBehaviour
     public void SaveGame()
     {
         repository.Store(JsonUtility.ToJson(gameData));
+        Debug.Log("SaveLoadManager: Saved game data");
     }
 
 }
