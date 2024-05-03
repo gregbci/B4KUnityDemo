@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,14 +18,28 @@ public class GameModel : Singleton<GameModel>
     public bool IsRotating => gameData.IsRotating;
     public Vector3 RotationRates => gameData.RotationRates;
 
+    // Change event for the model
+    // Note - there's a new runtime binding feature in Unity 2023.2 that looks nice, but doesn't
+    // seem to work reliably yet.  It works by setting providing the UI elements with a path to 
+    // the thing they should use for their data, ex: model.UserName.
+    public static event System.Action WasChanged;
 
     public void Start()
     {
-        // Initialize rates if they're zero (indicates new GameData)
-        if (gameData?.RotationRates == Vector3.zero)
+        // If the model is uninitialized, set it up
+        if (!gameData.WasInitialized)
         {
+            SetName("Unknown");
             ResetRotations();
+            gameData.WasInitialized = true;
         }
+        WasChanged?.Invoke();
+    }
+
+    public void SetName(string name)
+    {
+        gameData.UserName = "Player:" + name;
+        WasChanged?.Invoke();
     }
 
     public void StartRotate()

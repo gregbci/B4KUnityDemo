@@ -6,6 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
+    public bool WasInitialized;
     public string UserName;
     public Color CubeColor;
     public bool IsRotating;
