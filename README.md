@@ -1,5 +1,4 @@
 # B4KDemoApp
 
-Template Unity application for B4K 
-
+This is an example application for the BCI4Kids development team.
 
