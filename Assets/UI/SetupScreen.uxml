@@ -9,7 +9,9 @@
                 <engine:Tab label="Player" name="PlayerTab">
                     <engine:TextField label="Name" placeholder-text="player name" name="PlayerNameField" />
                 </engine:Tab>
-                <engine:Tab label="Game" name="GameTab" />
+                <engine:Tab label="Game" name="GameTab">
+                    <engine:DropdownField label="Cube Color" name="CubeColor" />
+                </engine:Tab>
             </engine:TabView>
         </engine:VisualElement>
     </engine:VisualElement>

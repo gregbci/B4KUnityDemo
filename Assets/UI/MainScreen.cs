@@ -13,7 +13,7 @@ public class MainScreen : MonoBehaviour
     {
         // Subscribe for model change events
         model = GameModel.Instance;
-        GameModel.WasChanged += RefreshUI;
+        GameModel.WasChanged += ModelChanged;
 
         VisualElement root = document.rootVisualElement;
         mainRoot = root.Q<VisualElement>("MainScreen");
@@ -33,10 +33,10 @@ public class MainScreen : MonoBehaviour
 
     private void OnDisable()
     {
-        GameModel.WasChanged -= RefreshUI;
+        GameModel.WasChanged -= ModelChanged;
     }
 
-    private void RefreshUI()
+    private void ModelChanged()
     {
         string displayName = "Player: " + model.UserName;
         mainRoot.Q<Label>("NameLabel").text = displayName;

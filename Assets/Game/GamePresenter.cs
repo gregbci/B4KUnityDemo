@@ -9,10 +9,18 @@ public class GamePresenter : MonoBehaviour
     private GameModel model;
 
 
+
     void Start()
     {
-        // look this up once instead of every update
+        // cache model and subscribe for changed event
         model = GameModel.Instance;
+        GameModel.WasChanged += ModelChanged;
+    }
+
+
+    private void OnDisable()
+    {
+        GameModel.WasChanged -= ModelChanged;
     }
 
     void Update()
@@ -21,6 +29,12 @@ public class GamePresenter : MonoBehaviour
         {
             cube.transform.Rotate(model.RotationRates * Time.deltaTime);
         }
+    }
+
+    private void ModelChanged()
+    {
+        // update the cube color
+        cube.GetComponent<Renderer>().material.color = model.CubeColor;
     }
 }
 

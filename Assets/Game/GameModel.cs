@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -29,19 +31,44 @@ public class GameModel : Singleton<GameModel>
         // If the model is uninitialized, set it up
         if (!gameData.WasInitialized)
         {
-            SetName("Unknown");
+            SetUserName("Unknown");
+            SetCubeColor("Green");
             ResetRotations();
             gameData.WasInitialized = true;
         }
         WasChanged?.Invoke();
     }
 
-    public void SetName(string name)
+
+    // player setup
+    public void SetUserName(string name)
     {
         gameData.UserName = name;
         WasChanged?.Invoke();
     }
 
+
+    // cube setup
+    private static readonly Dictionary<string, Color> CubeColors = new Dictionary<string, Color>
+    {
+        {"Blue", Color.blue},
+        {"Green", Color.green},
+        {"Purple", Color.magenta}
+    };
+
+    public List<string> CubeColorNames => CubeColors.Keys.ToList<string>();
+
+    public void SetCubeColor(string colorName)
+    {
+        if (CubeColors.ContainsKey(colorName))
+        {
+            gameData.CubeColor = CubeColors[colorName];
+            WasChanged?.Invoke();
+        }
+    }
+
+
+    // game control
     public void StartRotate()
     {
         gameData.IsRotating = true;
