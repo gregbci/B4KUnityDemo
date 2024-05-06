@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class MainScreen : MonoBehaviour
+public class MainPresenter : MonoBehaviour
 {
     public UIDocument document;
 
     private GameModel model;
     private VisualElement mainRoot;
-    private SetupScreen setupScreen;
+    private SetupPresenter setupScreen;
 
     private void Start()
     {
@@ -26,7 +26,7 @@ public class MainScreen : MonoBehaviour
         // Setup button shows a different screen.  For a more compilcated menu, it would be
         // better to break this out to a separate class (MenuController) who's job is just 
         // showing screens - using a "stack" style of navigation.
-        setupScreen = new SetupScreen(root.Q<VisualElement>("SetupScreen"));
+        setupScreen = new SetupPresenter(root.Q<VisualElement>("SetupScreen"));
         setupScreen.Hide();
         mainRoot.Q<Button>("SetupButton").clicked += () => ShowSetup();
     }

@@ -9,7 +9,6 @@ public class GamePresenter : MonoBehaviour
     private GameModel model;
 
 
-
     void Start()
     {
         // cache model and subscribe for changed event

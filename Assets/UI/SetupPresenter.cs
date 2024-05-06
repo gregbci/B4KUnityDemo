@@ -2,12 +2,12 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class SetupScreen
+public class SetupPresenter
 {
     private GameModel model;
     private VisualElement root;
 
-    public SetupScreen(VisualElement setupRoot)
+    public SetupPresenter(VisualElement setupRoot)
     {
         model = GameModel.Instance;
         root = setupRoot;

@@ -5,10 +5,8 @@ using UnityEngine;
 
 // GameModel implements the "business logic" for the game.  It stores
 // state in a GameData object for easy serialization.  The GameModel exposes
-// state via read only properties.  Mutation of the state typically requires
-// calling a GameModel function, ie: tell the model what you want to do rather
-// that doing it yourself.
-//
+// state to the application via read only properties.  The state is changed
+// through functions, ie: telling GameModel what you want to do.
 public class GameModel : Singleton<GameModel>
 {
     // Create a default GameData, this may be replaced by Bind()
@@ -21,9 +19,10 @@ public class GameModel : Singleton<GameModel>
     public Vector3 RotationRates => gameData.RotationRates;
 
     // Change event for the model
-    // Note - there's a new runtime binding feature in Unity 2023.2 that looks nice, but doesn't
-    // seem to work reliably yet.  It works by setting providing the UI elements with a path to 
-    // the thing they should use for their data, ex: model.UserName.
+    // Note - there's a runtime binding feature in Unity 2023.2 that looks nice, but doesn't
+    // seem to work reliably yet.  In theory we should be able to bind properties above with
+    // UI elements simply by providing a reference to the class and path name, ex: GameModel.UserName.
+    // If / when that works, the changed event can be removed.
     public static event System.Action WasChanged;
 
     public void Start()
@@ -49,16 +48,9 @@ public class GameModel : Singleton<GameModel>
 
 
     // cube setup
-    private static readonly Dictionary<string, Color> CubeColors = new Dictionary<string, Color>
-    {
-        {"Blue", Color.blue},
-        {"Green", Color.green},
-        {"Purple", Color.magenta}
-    };
+    public string CubeColorName => CubeColors.FirstOrDefault(item => item.Value == CubeColor).Key;
 
     public List<string> CubeColorNames => CubeColors.Keys.ToList<string>();
-
-    public string CubeColorName => CubeColors.FirstOrDefault(item => item.Value == CubeColor).Key;
 
     public void SetCubeColor(string colorName)
     {
@@ -68,6 +60,13 @@ public class GameModel : Singleton<GameModel>
             WasChanged?.Invoke();
         }
     }
+
+    private static readonly Dictionary<string, Color> CubeColors = new Dictionary<string, Color>
+    {
+        {"Blue", Color.blue},
+        {"Green", Color.green},
+        {"Purple", Color.magenta}
+    };
 
 
     // game control
