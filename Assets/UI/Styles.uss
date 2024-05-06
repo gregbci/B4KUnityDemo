@@ -33,3 +33,7 @@
     -unity-font-style: bold;
     color: rgb(0, 50, 255);
 }
+
+.unity-tab__header {
+    flex-grow: 1;
+}
