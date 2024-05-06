@@ -21,7 +21,6 @@ public class SetupScreen
 
     public void Hide()
     {
-        Debug.Log("Hide setup?");
         root.style.display = DisplayStyle.None;
         root.style.visibility = Visibility.Hidden;
     }
