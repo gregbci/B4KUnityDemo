@@ -58,6 +58,8 @@ public class GameModel : Singleton<GameModel>
 
     public List<string> CubeColorNames => CubeColors.Keys.ToList<string>();
 
+    public string CubeColorName => CubeColors.FirstOrDefault(item => item.Value == CubeColor).Key;
+
     public void SetCubeColor(string colorName)
     {
         if (CubeColors.ContainsKey(colorName))

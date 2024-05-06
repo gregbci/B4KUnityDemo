@@ -18,6 +18,7 @@ public class SetupScreen
         nameField.RegisterValueChangedCallback(NameFieldChanged);
 
         DropdownField colorDropdown = root.Q<DropdownField>("CubeColor");
+        colorDropdown.value = model.CubeColorName;
         colorDropdown.choices = model.CubeColorNames;
         colorDropdown.RegisterValueChangedCallback(ColorDropdownChanged);
     }
