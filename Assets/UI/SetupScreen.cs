@@ -11,6 +11,15 @@ public class SetupScreen
         model = GameModel.Instance;
         root = setupRoot;
         root.Q<Button>("DoneButton").clicked += () => Hide();
+        
+        TextField nameField = root.Q<TextField>("PlayerNameField");
+        nameField.value = model.UserName;
+        nameField.RegisterValueChangedCallback(NameFieldChanged);
+    }
+
+    private void NameFieldChanged(ChangeEvent<string> evt)
+    {
+        model.SetName(evt.newValue);
     }
 
     public void Show()

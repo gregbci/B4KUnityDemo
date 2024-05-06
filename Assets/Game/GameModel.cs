@@ -38,7 +38,7 @@ public class GameModel : Singleton<GameModel>
 
     public void SetName(string name)
     {
-        gameData.UserName = "Player:" + name;
+        gameData.UserName = name;
         WasChanged?.Invoke();
     }
 

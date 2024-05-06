@@ -38,7 +38,8 @@ public class MainScreen : MonoBehaviour
 
     private void RefreshUI()
     {
-        mainRoot.Q<Label>("NameLabel").text = model.UserName;
+        string displayName = "Player: " + model.UserName;
+        mainRoot.Q<Label>("NameLabel").text = displayName;
     }
 
     private void ShowSetup()

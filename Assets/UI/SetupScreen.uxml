@@ -4,6 +4,13 @@
         <engine:VisualElement style="flex-grow: 0;">
             <engine:Button text="Done" name="DoneButton" class="button" style="white-space: normal;" />
         </engine:VisualElement>
-        <engine:VisualElement name="VisualElement" style="flex-grow: 1;" />
+        <engine:VisualElement name="VisualElement" style="flex-grow: 1;">
+            <engine:TabView>
+                <engine:Tab label="Player" name="PlayerTab">
+                    <engine:TextField label="Name" placeholder-text="player name" name="PlayerNameField" />
+                </engine:Tab>
+                <engine:Tab label="Game" name="GameTab" />
+            </engine:TabView>
+        </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>
