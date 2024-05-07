@@ -35,7 +35,7 @@ public class GameModel : Singleton<GameModel>
             ResetRotations();
             gameData.WasInitialized = true;
         }
-        WasChanged?.Invoke();
+        SendChangeEvent();
     }
 
 
@@ -43,7 +43,7 @@ public class GameModel : Singleton<GameModel>
     public void SetUserName(string name)
     {
         gameData.UserName = name;
-        WasChanged?.Invoke();
+        SendChangeEvent();
     }
 
 
@@ -57,7 +57,7 @@ public class GameModel : Singleton<GameModel>
         if (CubeColors.ContainsKey(colorName))
         {
             gameData.CubeColor = CubeColors[colorName];
-            WasChanged?.Invoke();
+            SendChangeEvent();
         }
     }
 
@@ -91,5 +91,11 @@ public class GameModel : Singleton<GameModel>
     public void Bind(GameData gameData)
     {
         this.gameData = gameData;
+        SendChangeEvent();
+    }
+
+    private void SendChangeEvent()
+    {
+        WasChanged?.Invoke();
     }
 }
