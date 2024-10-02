@@ -23,7 +23,7 @@ public class GameModel : Singleton<GameModel>
     // seem to work reliably yet.  In theory we should be able to bind properties above with
     // UI elements simply by providing a reference to the class and path name, ex: GameModel.UserName.
     // If / when that works, the changed event can be removed.
-    public static event System.Action WasChanged;
+    public event System.Action WasChanged;
 
     public void Start()
     {

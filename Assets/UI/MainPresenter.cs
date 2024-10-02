@@ -13,7 +13,7 @@ public class MainPresenter : MonoBehaviour
     {
         // Subscribe for model change events
         model = GameModel.Instance;
-        GameModel.WasChanged += ModelChanged;
+        model.WasChanged += ModelChanged;
 
         VisualElement root = document.rootVisualElement;
         mainRoot = root.Q<VisualElement>("MainScreen");
@@ -33,7 +33,7 @@ public class MainPresenter : MonoBehaviour
 
     private void OnDisable()
     {
-        GameModel.WasChanged -= ModelChanged;
+        model.WasChanged -= ModelChanged;
     }
 
     private void ModelChanged()

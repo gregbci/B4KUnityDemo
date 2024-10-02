@@ -13,13 +13,13 @@ public class GamePresenter : MonoBehaviour
     {
         // cache model and subscribe for changed event
         model = GameModel.Instance;
-        GameModel.WasChanged += ModelChanged;
+        model.WasChanged += ModelChanged;
     }
 
 
     private void OnDisable()
     {
-        GameModel.WasChanged -= ModelChanged;
+        model.WasChanged -= ModelChanged;
     }
 
     void Update()
